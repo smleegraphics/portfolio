@@ -1,0 +1,103 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/3d-modeling', label: '3D Modeling' },
+  { href: '/sketchbook', label: 'Sketchbook' },
+  { href: '/code', label: 'Code' },
+  { href: '/about', label: 'About' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-white/70 backdrop-blur-lg border-b border-gray-100/50">
+  <nav class="container">
+    <div class="flex items-center justify-between h-16">
+      <!-- Logo -->
+      <a href="/" class="font-display text-lg font-semibold text-gray-900 hover:text-accent transition-colors">
+        Sam Lee
+      </a>
+
+      <!-- Desktop Navigation -->
+      <ul class="hidden md:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                'relative px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200',
+                currentPath === link.href
+                  ? 'text-accent bg-lavender-50'
+                  : 'text-gray-600 hover:text-accent hover:bg-lavender-50/50',
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden p-2 -mr-2 text-gray-600 hover:text-accent hover:bg-lavender-50 rounded-xl transition-colors"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <svg class="w-6 h-6 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            id="menu-icon"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4 animate-slide-up">
+      <ul class="flex flex-col gap-1">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={[
+                'block py-3 px-4 rounded-xl text-sm font-medium transition-all duration-200',
+                currentPath === link.href
+                  ? 'bg-lavender-100 text-accent'
+                  : 'text-gray-600 hover:bg-lavender-50 hover:text-accent',
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+
+  if (menuBtn && mobileMenu && menuIcon) {
+    menuBtn.addEventListener('click', () => {
+      const isExpanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', (!isExpanded).toString());
+      mobileMenu.classList.toggle('hidden');
+
+      // Rotate icon on open
+      if (isExpanded) {
+        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+        menuBtn.querySelector('svg')?.classList.remove('rotate-90');
+      } else {
+        menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+        menuBtn.querySelector('svg')?.classList.add('rotate-90');
+      }
+    });
+  }
+</script>

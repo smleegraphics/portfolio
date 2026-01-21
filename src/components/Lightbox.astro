@@ -1,0 +1,137 @@
+---
+interface Props {
+  images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<div
+  id="lightbox"
+  class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Image lightbox"
+>
+  <button
+    id="lightbox-close"
+    class="absolute top-4 right-4 p-2 text-white/80 hover:text-white transition-colors z-10"
+    aria-label="Close lightbox"
+  >
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+    </svg>
+  </button>
+
+  <button
+    id="lightbox-prev"
+    class="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white/80 hover:text-white transition-colors z-10"
+    aria-label="Previous image"
+  >
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+    </svg>
+  </button>
+
+  <button
+    id="lightbox-next"
+    class="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white/80 hover:text-white transition-colors z-10"
+    aria-label="Next image"
+  >
+    <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+    </svg>
+  </button>
+
+  <div class="flex items-center justify-center w-full h-full p-8 md:p-16">
+    <img
+      id="lightbox-image"
+      src=""
+      alt=""
+      class="max-w-full max-h-full object-contain"
+    />
+  </div>
+
+  <div id="lightbox-counter" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/80 text-sm">
+    <span id="lightbox-current">1</span> / <span id="lightbox-total">{images.length}</span>
+  </div>
+</div>
+
+<script define:vars={{ images }}>
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  const lightboxCurrent = document.getElementById('lightbox-current');
+  const triggers = document.querySelectorAll('.lightbox-trigger');
+
+  let currentIndex = 0;
+  const imageList = images;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateImage();
+    lightbox?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  function updateImage() {
+    if (lightboxImage && lightboxCurrent) {
+      lightboxImage.src = imageList[currentIndex];
+      lightboxImage.alt = `Image ${currentIndex + 1}`;
+      lightboxCurrent.textContent = (currentIndex + 1).toString();
+    }
+  }
+
+  function nextImage() {
+    currentIndex = (currentIndex + 1) % imageList.length;
+    updateImage();
+  }
+
+  function prevImage() {
+    currentIndex = (currentIndex - 1 + imageList.length) % imageList.length;
+    updateImage();
+  }
+
+  // Event listeners
+  triggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const index = parseInt(trigger.dataset.index || '0', 10);
+      openLightbox(index);
+    });
+  });
+
+  lightboxClose?.addEventListener('click', closeLightbox);
+  lightboxNext?.addEventListener('click', nextImage);
+  lightboxPrev?.addEventListener('click', prevImage);
+
+  // Close on backdrop click
+  lightbox?.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (lightbox?.classList.contains('hidden')) return;
+
+    switch (e.key) {
+      case 'Escape':
+        closeLightbox();
+        break;
+      case 'ArrowRight':
+        nextImage();
+        break;
+      case 'ArrowLeft':
+        prevImage();
+        break;
+    }
+  });
+</script>

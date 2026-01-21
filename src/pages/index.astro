@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+
+const allProjects = await getCollection('projects');
+const featuredProjects = allProjects
+  .filter((p) => p.data.featured)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<BaseLayout title="Sam Lee | Creative Developer & 3D Artist">
+  <!-- Hero Section with decorative blobs -->
+  <section class="container py-20 md:py-32 relative overflow-hidden">
+    <!-- Decorative blobs -->
+    <div class="blob blob-purple w-72 h-72 -top-20 -right-20 opacity-20"></div>
+    <div class="blob blob-pink w-64 h-64 top-40 -left-32 opacity-15" style="animation-delay: 2s;"></div>
+
+    <div class="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
+      <div class="max-w-2xl relative">
+        <h1 class="text-4xl md:text-5xl lg:text-5xl font-display font-bold text-gray-900 leading-tight fade-in" style="animation-delay: 0.1s">
+          Hi, I'm <span class="gradient-text">Sam Lee</span>
+          <span class="inline-block animate-float" style="animation-delay: 0.5s;">✨</span>
+        </h1>
+
+        <p class="mt-2 text-3xl md:text-4xl lg:text-4xl font-display font-bold text-gray-400 fade-in" style="animation-delay: 0.15s">
+          Creative Developer & 3D Artist
+        </p>
+
+        <p class="mt-6 text-lg md:text-xl text-gray-600 fade-in" style="animation-delay: 0.2s">
+          I craft delightful digital experiences through code, 3D modeling, and visual design.
+          Let's build something beautiful together.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-4 fade-in" style="animation-delay: 0.25s">
+          <a href="/code" class="btn-primary group">
+            <span>View My Work</span>
+            <svg class="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
+          <a href="/about" class="btn-secondary">
+            Get to Know Me
+          </a>
+        </div>
+      </div>
+
+      <!-- Headshot with layered bean effect -->
+      <div class="flex-shrink-0 fade-in" style="animation-delay: 0.1s">
+        <div class="relative w-[23rem] h-[30rem] md:w-[28rem] md:h-[34rem] lg:w-[30rem] lg:h-[39rem]">
+          <!-- Soft glow behind -->
+          <div class="absolute -inset-20 bg-gradient-to-br from-accent/20 via-purple-200/30 to-pink-200/20 blur-[80px] opacity-80"></div>
+          <!-- Bean-shaped mask (higher on right, slopes to left) -->
+          <div
+            class="absolute left-0 right-0 bottom-0 h-[60%] overflow-hidden shadow-lg"
+            style="border-radius: 70% 20% 50% 50% / 70% 20% 50% 40%;"
+          >
+            <img
+              src="/images/headshot.jpg"
+              alt=""
+              class="absolute left-0 w-full object-cover"
+              style="height: 166.67%; top: -66.67%; object-position: 30% 20%;"
+            />
+          </div>
+          <!-- Transparent image on top - same size, perfectly aligned -->
+          <img
+            src="/images/headshot-transparent.png"
+            alt="Sam Lee"
+            class="absolute inset-0 w-full h-full object-cover drop-shadow-2xl z-10"
+            style="object-position: 30% 20%;"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Work -->
+  {featuredProjects.length > 0 && (
+    <section class="container pb-20">
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-2xl font-display font-bold text-gray-900">Featured Work</h2>
+        <a href="/code" class="link-fancy text-sm font-medium flex items-center gap-1 group">
+          View all
+          <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredProjects.map((project, index) => (
+          <div class="fade-in opacity-0" style={`animation-delay: ${0.1 + index * 0.1}s`}>
+            <ProjectCard
+              title={project.data.title}
+              description={project.data.description}
+              thumbnail={project.data.thumbnail}
+              href={`/projects/${project.slug}`}
+              tags={project.data.tags}
+            />
+          </div>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Quick Links -->
+  <section class="container pb-20">
+    <h2 class="text-2xl font-display font-bold text-gray-900 mb-8">Explore</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <a
+        href="/3d-modeling"
+        class="group p-6 card-playful hover:border-accent/30"
+      >
+        <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-purple-200 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+          <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-gray-900 group-hover:text-accent transition-colors">3D Modeling</h3>
+        <p class="mt-2 text-sm text-gray-600">Character designs, environments, and digital sculptures.</p>
+      </a>
+
+      <a
+        href="/sketchbook"
+        class="group p-6 card-playful hover:border-accent/30"
+      >
+        <div class="w-14 h-14 bg-gradient-to-br from-pink-100 to-purple-200 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+          <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-gray-900 group-hover:text-accent transition-colors">Sketchbook</h3>
+        <p class="mt-2 text-sm text-gray-600">Traditional and digital sketches, concept art, and doodles.</p>
+      </a>
+
+      <a
+        href="/code"
+        class="group p-6 card-playful hover:border-accent/30"
+      >
+        <div class="w-14 h-14 bg-gradient-to-br from-blue-100 to-purple-200 rounded-2xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110 group-hover:rotate-3">
+          <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+          </svg>
+        </div>
+        <h3 class="font-display font-semibold text-gray-900 group-hover:text-accent transition-colors">Code Projects</h3>
+        <p class="mt-2 text-sm text-gray-600">Web applications, tools, and creative coding experiments.</p>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

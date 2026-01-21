@@ -1,0 +1,30 @@
+---
+import ProjectLayout from '../../layouts/ProjectLayout.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  const sketches = await getCollection('sketches');
+  return sketches.map((sketch) => ({
+    params: { slug: sketch.slug },
+    props: { sketch },
+  }));
+}
+
+interface Props {
+  sketch: CollectionEntry<'sketches'>;
+}
+
+const { sketch } = Astro.props;
+const { Content } = await sketch.render();
+---
+
+<ProjectLayout
+  title={sketch.data.title}
+  description={sketch.data.description}
+  date={sketch.data.date}
+  thumbnail={sketch.data.thumbnail}
+  images={sketch.data.images}
+  tags={sketch.data.tags}
+>
+  <Content />
+</ProjectLayout>
