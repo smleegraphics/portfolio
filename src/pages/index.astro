@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import LavaLampBackground from '../components/LavaLampBackground.astro';
 import { getCollection } from 'astro:content';
 
 const allProjects = await getCollection('projects');
@@ -12,7 +13,10 @@ const featuredProjects = allProjects
 
 <BaseLayout title="Sam Lee | Creative Developer & 3D Artist">
   <!-- Hero Section -->
-  <section class="relative w-full min-h-screen overflow-hidden bg-white">
+  <section class="relative w-full min-h-screen bg-white">
+    <!-- Lava lamp background - blobs that merge and flow -->
+    <LavaLampBackground />
+
     <!-- Decorative blobs (absolute, full width) -->
     <div class="blob blob-purple w-72 h-72 -top-20 -right-20 opacity-20"></div>
     <div class="blob blob-pink w-64 h-64 top-40 -left-32 opacity-15" style="animation-delay: 2s;"></div>
@@ -50,11 +54,11 @@ const featuredProjects = allProjects
       </div>
 
       <!-- Headshot Column -->
-      <div class="flex-shrink-0 fade-in" style="animation-delay: 0.1s">
-        <div class="relative w-[23rem] h-[30rem] md:w-[28rem] md:h-[34rem] lg:w-[30rem] lg:h-[39rem]">
+      <div class="flex-shrink-0 fade-in relative" style="animation-delay: 0.1s">
+        <div id="headshot-container" class="relative w-[23rem] h-[30rem] md:w-[28rem] md:h-[34rem] lg:w-[30rem] lg:h-[39rem]">
 
           <!-- Soft glow behind -->
-          <div class="absolute -inset-20 bg-gradient-to-br from-accent/20 via-purple-200/30 to-pink-200/20 blur-[80px] opacity-100"></div>
+          <!-- <div class="absolute -inset-20 bg-gradient-to-br from-accent/20 via-purple-200/30 to-pink-200/20 blur-[80px] opacity-100"></div> -->
 
           <!-- Bean-shaped mask -->
           <div class="absolute left-0 right-0 bottom-0 h-[60%] overflow-hidden shadow-lg"
