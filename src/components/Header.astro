@@ -1,20 +1,26 @@
 ---
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/3d-modeling', label: '3D Modeling' },
-  { href: '/sketchbook', label: 'Sketchbook' },
-  { href: '/code', label: 'Code' },
+  { href: '/work-experience', label: 'Work Experience' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/art', label: 'Art' },
   { href: '/about', label: 'About' },
 ];
 
 const currentPath = Astro.url.pathname;
+
+// Check if current path is under a nav section (for highlighting)
+const isUnderSection = (href: string) => {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+};
 ---
 
 <header class="sticky top-0 z-50 bg-white/70 backdrop-blur-lg border-b border-gray-100/50">
-  <nav class="container">
+  <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="font-display text-lg font-semibold text-gray-900 hover:text-accent transition-colors">
+      <a href="/" class="font-display text-lg font-semibold text-gray-900 hover:text-accent transition-colors pl-0">
         Sam Lee
       </a>
 
@@ -26,7 +32,7 @@ const currentPath = Astro.url.pathname;
               href={link.href}
               class:list={[
                 'relative px-4 py-2 text-sm font-medium rounded-xl transition-all duration-200',
-                currentPath === link.href
+                isUnderSection(link.href)
                   ? 'text-accent bg-lavender-50'
                   : 'text-gray-600 hover:text-accent hover:bg-lavender-50/50',
               ]}
@@ -65,7 +71,7 @@ const currentPath = Astro.url.pathname;
               href={link.href}
               class:list={[
                 'block py-3 px-4 rounded-xl text-sm font-medium transition-all duration-200',
-                currentPath === link.href
+                isUnderSection(link.href)
                   ? 'bg-lavender-100 text-accent'
                   : 'text-gray-600 hover:bg-lavender-50 hover:text-accent',
               ]}

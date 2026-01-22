@@ -1,0 +1,171 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Work Experience | Sam Lee" description="Professional work experience at Meta, Applied Intuition, and more.">
+  <section class="container py-12 md:py-16">
+    <header class="mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Work Experience</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        A showcase of my professional work in the tech and creative industries.
+      </p>
+    </header>
+
+    <div class="grid gap-8 max-w-4xl">
+      <!-- Meta -->
+      <a href="/work-experience/meta" class="group block card-playful p-6 hover:border-accent/30">
+        <div class="flex items-start gap-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+            <svg class="w-8 h-8 text-white" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.477 2 2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.879V14.89h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.989C18.343 21.129 22 16.99 22 12c0-5.523-4.477-10-10-10z"/>
+            </svg>
+          </div>
+          <div class="flex-1">
+            <h2 class="text-xl font-display font-semibold text-gray-900 group-hover:text-accent transition-colors">Meta</h2>
+            <p class="text-gray-500 text-sm mt-1">Technical Artist</p>
+            <p class="text-gray-600 mt-3">
+              Working on creative tools and experiences for the metaverse platform.
+            </p>
+            <span class="inline-flex items-center mt-4 text-sm font-medium text-accent group-hover:underline">
+              View work
+              <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Applied Intuition (Password Protected) -->
+      <div
+        id="applied-intuition-card"
+        class="group block card-playful p-6 hover:border-accent/30 cursor-pointer"
+        onclick="document.getElementById('password-modal').classList.remove('hidden')"
+      >
+        <div class="flex items-start gap-6">
+          <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110">
+            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+            </svg>
+          </div>
+          <div class="flex-1">
+            <div class="flex items-center gap-2">
+              <h2 class="text-xl font-display font-semibold text-gray-900 group-hover:text-accent transition-colors">Applied Intuition</h2>
+              <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-600">
+                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                </svg>
+                Protected
+              </span>
+            </div>
+            <p class="text-gray-500 text-sm mt-1">Technical Artist</p>
+            <p class="text-gray-600 mt-3">
+              Developing simulation and visualization tools for autonomous vehicle development.
+            </p>
+            <span class="inline-flex items-center mt-4 text-sm font-medium text-accent group-hover:underline">
+              Enter password to view
+              <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+              </svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Password Modal -->
+  <div id="password-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center">
+    <!-- Backdrop -->
+    <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="document.getElementById('password-modal').classList.add('hidden')"></div>
+
+    <!-- Modal -->
+    <div class="relative bg-white rounded-2xl shadow-xl p-8 max-w-md w-full mx-4 animate-slide-up">
+      <button
+        class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+        onclick="document.getElementById('password-modal').classList.add('hidden')"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="text-center mb-6">
+        <div class="w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <h3 class="text-xl font-display font-semibold text-gray-900">Password Required</h3>
+        <p class="text-gray-600 mt-2">This content is protected. Please enter the password to continue.</p>
+      </div>
+
+      <form id="password-form" onsubmit="return checkPassword(event)">
+        <div class="mb-4">
+          <input
+            type="password"
+            id="password-input"
+            class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all"
+            placeholder="Enter password"
+            autocomplete="off"
+          />
+          <p id="password-error" class="hidden text-red-500 text-sm mt-2">Incorrect password. Please try again.</p>
+        </div>
+        <button
+          type="submit"
+          class="w-full btn-primary"
+        >
+          Unlock Content
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script is:inline>
+    // Simple password check - the hash is for "appliedintuition"
+    // This is client-side only, meant as a basic deterrent
+    const CORRECT_HASH = '8b9e8b8f2c3e4d5a6b7c8d9e0f1a2b3c';
+
+    function simpleHash(str) {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        const char = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + char;
+        hash = hash & hash;
+      }
+      return Math.abs(hash).toString(16);
+    }
+
+    function checkPassword(event) {
+      event.preventDefault();
+      const input = document.getElementById('password-input');
+      const error = document.getElementById('password-error');
+      const password = input.value.toLowerCase().trim();
+
+      // Store in session for this visit
+      sessionStorage.setItem('ai_password', password);
+
+      // Redirect to the protected page - it will validate the password
+      window.location.href = '/work-experience/applied-intuition';
+      return false;
+    }
+
+    // Check if already authenticated
+    if (sessionStorage.getItem('ai_authenticated') === 'true') {
+      const card = document.getElementById('applied-intuition-card');
+      if (card) {
+        card.onclick = () => window.location.href = '/work-experience/applied-intuition';
+        const badge = card.querySelector('.bg-gray-100');
+        if (badge) {
+          badge.classList.remove('bg-gray-100', 'text-gray-600');
+          badge.classList.add('bg-green-100', 'text-green-600');
+          badge.innerHTML = '<svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>Unlocked';
+        }
+        const viewText = card.querySelector('.text-accent');
+        if (viewText) {
+          viewText.textContent = 'View work';
+        }
+      }
+    }
+  </script>
+</BaseLayout>
