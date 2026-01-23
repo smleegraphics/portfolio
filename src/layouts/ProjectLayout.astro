@@ -1,18 +1,15 @@
 ---
 import BaseLayout from './BaseLayout.astro';
-import Lightbox from '../components/Lightbox.astro';
 
 interface Props {
   title: string;
   description: string;
   date: Date;
   thumbnail: string;
-  images?: string[];
   tags?: string[];
 }
 
-const { title, description, date, thumbnail, images = [], tags = [] } = Astro.props;
-const allImages = [thumbnail, ...images];
+const { title, description, date, thumbnail, tags = [] } = Astro.props;
 
 const formattedDate = new Intl.DateTimeFormat('en-US', {
   year: 'numeric',
@@ -45,28 +42,5 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
     <div class="prose prose-lg max-w-none mb-12">
       <slot />
     </div>
-
-    {images.length > 0 && (
-      <section class="mt-12">
-        <h2 class="text-xl font-semibold mb-6">Gallery</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {allImages.map((img, index) => (
-            <button
-              class="lightbox-trigger aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group"
-              data-index={index}
-            >
-              <img
-                src={img}
-                alt={`${title} - Image ${index + 1}`}
-                class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                loading="lazy"
-              />
-            </button>
-          ))}
-        </div>
-      </section>
-    )}
   </article>
-
-  <Lightbox images={allImages} />
 </BaseLayout>

@@ -3,9 +3,6 @@ title: Enchanted Forest Scene
 description: A low-poly stylized forest environment with dynamic lighting and particle effects.
 date: 2024-02-20
 thumbnail: /images/forest-thumb.jpg
-images:
-  - /images/forest-wide.jpg
-  - /images/forest-detail.jpg
 tags:
   - 3d
   - blender

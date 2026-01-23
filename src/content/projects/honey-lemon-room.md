@@ -1,7 +1,7 @@
 ---
 title: Honey Lemon Room
 description: A cozy stylized bedroom environment built in Unreal Engine.
-date: 2024-01-15
+date: 2022-06-15
 thumbnail: /images/projects/honey-lemon-room/lighted_room.png
 tags:
   - project

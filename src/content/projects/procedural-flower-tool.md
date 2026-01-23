@@ -3,10 +3,6 @@ title: Procedural Flower Tool
 description: A Houdini-based procedural tool for generating customizable stylized flowers with art-directable parameters.
 date: 2024-02-20
 thumbnail: /images/projects/procedural-flower-thumb.jpg
-images:
-  - /images/projects/procedural-flower-1.jpg
-  - /images/projects/procedural-flower-2.jpg
-  - /images/projects/procedural-flower-3.jpg
 tags:
   - project
   - houdini

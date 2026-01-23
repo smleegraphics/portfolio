@@ -3,10 +3,6 @@ title: Robot Character Design
 description: A stylized robot character modeled in Blender with custom textures and rigging.
 date: 2024-03-15
 thumbnail: /images/robot-thumb.jpg
-images:
-  - /images/robot-front.jpg
-  - /images/robot-side.jpg
-  - /images/robot-back.jpg
 tags:
   - 3d
   - blender

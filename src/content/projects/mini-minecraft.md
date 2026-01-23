@@ -3,10 +3,6 @@ title: Mini Minecraft
 description: A C++ and OpenGL recreation of Minecraft featuring terrain generation, player physics, and block interaction.
 date: 2023-12-01
 thumbnail: /images/projects/mini-minecraft-thumb.jpg
-images:
-  - /images/projects/mini-minecraft-1.jpg
-  - /images/projects/mini-minecraft-2.jpg
-  - /images/projects/mini-minecraft-3.jpg
 tags:
   - project
   - code

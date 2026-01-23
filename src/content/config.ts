@@ -5,7 +5,6 @@ const projectSchema = z.object({
   description: z.string(),
   date: z.date(),
   thumbnail: z.string(),
-  images: z.array(z.string()).optional(),
   tags: z.array(z.string()).optional(),
   featured: z.boolean().default(false),
 });

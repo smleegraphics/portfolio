@@ -3,10 +3,6 @@ title: Procedural Mushroom Tool
 description: A Houdini tool for generating diverse stylized mushrooms with customizable caps, stems, and cluster arrangements.
 date: 2024-04-05
 thumbnail: /images/projects/procedural-mushroom-thumb.jpg
-images:
-  - /images/projects/procedural-mushroom-1.jpg
-  - /images/projects/procedural-mushroom-2.jpg
-  - /images/projects/procedural-mushroom-3.jpg
 tags:
   - project
   - houdini
