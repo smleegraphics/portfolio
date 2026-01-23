@@ -15,15 +15,15 @@ const socialLinks = [
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-gray-100/50 mt-auto bg-gradient-to-b from-transparent to-lavender-50/30">
+<footer class="border-t border-gray-100/50 dark:border-gray-800/50 mt-auto bg-gradient-to-b from-transparent to-lavender-50/30 dark:to-gray-900/50">
   <div class="container py-10">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
       <!-- Branding -->
       <div class="flex flex-col items-center md:items-start gap-2">
-        <a href="/" class="font-display text-sm font-semibold text-gray-700 hover:text-accent transition-colors">
+        <a href="/" class="font-display text-sm font-semibold text-gray-700 dark:text-gray-300 hover:text-accent transition-colors">
           Sam Lee
         </a>
-        <p class="text-sm text-gray-500">
+        <p class="text-sm text-gray-500 dark:text-gray-400">
           Crafted with care in {currentYear}
         </p>
       </div>
@@ -35,7 +35,7 @@ const currentYear = new Date().getFullYear();
             href={link.href}
             target="_blank"
             rel="noopener noreferrer"
-            class="p-2.5 text-gray-400 hover:text-accent hover:bg-lavender-50 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
+            class="p-2.5 text-gray-400 dark:text-gray-500 hover:text-accent hover:bg-lavender-50 dark:hover:bg-accent/10 rounded-xl transition-all duration-200 hover:-translate-y-0.5"
             aria-label={link.name}
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -47,8 +47,8 @@ const currentYear = new Date().getFullYear();
     </div>
 
     <!-- Fun message -->
-    <div class="mt-8 pt-6 border-t border-gray-100 text-center">
-      <p class="text-xs text-gray-400">
+    <div class="mt-8 pt-6 border-t border-gray-100 dark:border-gray-800 text-center">
+      <p class="text-xs text-gray-400 dark:text-gray-500">
         Made with
         <span class="inline-block animate-bounce-soft text-pink-400">♥</span>
       </p>
