@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageGrid from '../../components/ImageGrid.astro';
+import { getCollection } from 'astro:content';
+
+// Get sketches from the sketches collection and projects tagged with '2d' or 'illustration'
+const sketches = await getCollection('sketches');
+const artProjects = await getCollection('projects', ({ data }) => {
+  return data.tags?.includes('2d') || data.tags?.includes('illustration') || data.tags?.includes('sketch');
+});
+
+// Combine and sort by date
+const allArt = [...sketches, ...artProjects].sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title="Sketchbook | Sam Lee" description="Traditional paintings, sketches, and digital art.">
+  <section class="container py-12 md:py-16">
+    <header class="mb-12">
+      <nav class="mb-6">
+        <a href="/art" class="inline-flex items-center text-sm text-gray-500 hover:text-accent transition-colors">
+          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Back to Art
+        </a>
+      </nav>
+
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Sketchbook</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        A collection of traditional paintings, sketches, and digital art.
+      </p>
+    </header>
+
+    {allArt.length > 0 ? (
+      <ImageGrid projects={allArt} basePath="/sketches" />
+    ) : (
+      <div class="text-center py-12">
+        <div class="w-20 h-20 bg-gradient-to-br from-pink-100 to-purple-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
+          <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+          </svg>
+        </div>
+        <h2 class="text-xl font-display font-semibold text-gray-900 mb-2">Sketchbook Coming Soon</h2>
+        <p class="text-gray-600 max-w-md mx-auto">
+          I'm currently adding my artwork. Check back soon to see paintings,
+          sketches, and more!
+        </p>
+      </div>
+    )}
+  </section>
+</BaseLayout>

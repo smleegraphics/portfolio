@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Art | Sam Lee" description="3D art and sketchbook featuring character designs, environments, paintings, and sketches.">
+  <section class="container py-12 md:py-16">
+    <header class="mb-12">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Art</h1>
+      <p class="text-lg text-gray-600 max-w-2xl">
+        A collection of my artistic work, spanning 3D modeling and traditional/digital art.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
+      <!-- 3D Art -->
+      <a href="/art/3d" class="group block card-playful overflow-hidden">
+        <div class="aspect-[4/3] bg-gradient-to-br from-accent/10 to-purple-200/50 flex items-center justify-center">
+          <div class="w-24 h-24 bg-gradient-to-br from-accent/30 to-purple-300 rounded-3xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+            <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5" />
+            </svg>
+          </div>
+        </div>
+        <div class="p-6">
+          <h2 class="text-xl font-display font-semibold text-gray-900 group-hover:text-accent transition-colors">3D Art</h2>
+          <p class="text-gray-600 mt-2">
+            Character designs, environments, and digital sculptures created in Blender and other tools.
+          </p>
+          <span class="inline-flex items-center mt-4 text-sm font-medium text-accent group-hover:underline">
+            View gallery
+            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </div>
+      </a>
+
+      <!-- Sketchbook -->
+      <a href="/art/sketchbook" class="group block card-playful overflow-hidden">
+        <div class="aspect-[4/3] bg-gradient-to-br from-pink-100/50 to-purple-200/50 flex items-center justify-center">
+          <div class="w-24 h-24 bg-gradient-to-br from-pink-200 to-purple-300 rounded-3xl flex items-center justify-center transition-transform duration-500 group-hover:scale-110 group-hover:-rotate-6">
+            <svg class="w-12 h-12 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+            </svg>
+          </div>
+        </div>
+        <div class="p-6">
+          <h2 class="text-xl font-display font-semibold text-gray-900 group-hover:text-accent transition-colors">Sketchbook</h2>
+          <p class="text-gray-600 mt-2">
+            Traditional paintings, sketches, and digital art.
+          </p>
+          <span class="inline-flex items-center mt-4 text-sm font-medium text-accent group-hover:underline">
+            View gallery
+            <svg class="w-4 h-4 ml-1 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
