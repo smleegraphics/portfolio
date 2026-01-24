@@ -23,13 +23,13 @@ I created a procedural apple tree generator based on L-Systems with the base gra
 
 <div class="mt-16"></div>
 
-<h2 class="text-2xl font-semibold text-gray-900 mb-4">Instance Rendering</h2>
+<h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Instance Rendering</h2>
 
 The branches of the tree are made up of many small cylinders that are instance rendered on top of each other. I created a Turtle class that marches along a path specified by the L-System grammar and determines the size and orientation of a given cylinder instance. The leaves and apples are also instance rendered similarly.
 
 <div class="mt-16"></div>
 
-<h2 class="text-2xl font-semibold text-gray-900 mb-4">User Parameters</h2>
+<h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">User Parameters</h2>
 
 The branch rotation angles are based on a seeded noise function, which means the tree only changes when prompted by the user's seed input. The user may also increase or decrease the number of recursive calls in the L-System with the iterations control. I implemented the apple density control by simply adding a probability value and conditionally rendering an apple based on the apple density value. The branch thickness on the other hand was a bit more tricky to implement.
 
@@ -39,7 +39,7 @@ Since thickness is an attribute that belongs to the individual instances of each
 
 <div class="mt-16"></div>
 
-<h2 class="text-2xl font-semibold text-gray-900 mb-4">Final Touches</h2>
+<h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Final Touches</h2>
 
 To add a bit of visual flair, I added FBM-based clouds to the background referencing <a href="https://www.shadertoy.com/view/4tdSWr" target="_blank" class="text-accent hover:underline">this shader</a>.
 

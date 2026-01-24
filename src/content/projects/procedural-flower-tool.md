@@ -19,18 +19,18 @@ I have always wanted to create an art-directable procedural tool in Houdini, and
 
 <div class="mt-16"></div>
 
-<h2 class="text-2xl font-semibold text-gray-900 mb-4">Inspiration</h2>
+<h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Inspiration</h2>
 
 <div class="flex flex-col md:flex-row gap-6 items-center">
   <div class="w-full md:w-1/2">
     <div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://www.youtube.com/embed/CV2P-xsEiYE?autoplay=1&mute=1&loop=1&playlist=CV2P-xsEiYE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:0.5rem;" title="Flower blooming reference"></iframe></div>
   </div>
-  <p class="w-full md:w-1/2 text-gray-700">I really wanted to draw my inspiration from life, so I studied the structure and blooming patterns of many different types of flowers.</p>
+  <p class="w-full md:w-1/2 text-gray-700 dark:text-gray-300">I really wanted to draw my inspiration from life, so I studied the structure and blooming patterns of many different types of flowers.</p>
 </div>
 
 <div class="mt-16"></div>
 
-<h2 class="text-2xl font-semibold text-gray-900 mb-4">Golden Ratio Petal Structure</h2>
+<h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Golden Ratio Petal Structure</h2>
 
 Here is a quick summary of the algorithm used to generate the spiral of petals: For every petal in the flower, I want to calculate the petal's position by finding its polar coordinates (radius and angle). The radius is proportional to the number of petals, so that the spiral continues to grow as we increase the petals. The golden angle is added to the angle for every petal, driving the spiral's curve.
 
@@ -40,7 +40,7 @@ Here is a quick summary of the algorithm used to generate the spiral of petals: 
 
 <div class="mt-16"></div>
 
-<h2 class="text-2xl font-semibold text-gray-900 mb-4">Flower and Petal Parameters</h2>
+<h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Flower and Petal Parameters</h2>
 
 Parameters are categorized into flower parameters, for changes to the overall shape of the flower, and petal parameters, for changes to individual petals. I wanted to focus on improving the usability of the tool and fine tuning the parameters of the petal subnetwork to maximize flower variance and allow artistic specificity.
 
@@ -50,7 +50,7 @@ After studying many different types of flowers, it became apparent that there is
 
 <div class="mt-16"></div>
 
-<h2 class="text-2xl font-semibold text-gray-900 mb-4">Final Renders</h2>
+<h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Final Renders</h2>
 
 Here are just a couple examples of applications of my procedural flower tool:
 
