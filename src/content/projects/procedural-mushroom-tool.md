@@ -15,9 +15,7 @@ Building on my experience with the procedural flower tool, I wanted to explore m
 
 <div class="mt-8"></div>
 
-<video autoplay muted loop playsinline controls class="w-full rounded-lg">
-  <source src="/images/projects/procedural-mushroom-tool/indv_mushroom_demo.mov" type="video/mp4">
-</video>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1157994498?autoplay=1&loop=1&muted=1&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:0.5rem;" title="Procedural Mushroom Tool Demo"></iframe></div>
 
 <div class="mt-16"></div>
 
@@ -160,9 +158,7 @@ By combining the space colonization paths with the mushroom tool, I created an a
 
 <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Final Result</h2>
 
-<video autoplay muted loop playsinline controls class="w-full rounded-lg">
-  <source src="/images/projects/procedural-mushroom-tool/growth_render.mov" type="video/mp4">
-</video>
+<div style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/781691175?autoplay=1&loop=1&muted=1&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:0.5rem;" title="Procedural Mushroom Growth Render"></iframe></div>
 
 <div class="mt-16"></div>
 
