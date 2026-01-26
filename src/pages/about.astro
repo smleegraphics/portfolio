@@ -21,10 +21,10 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
         <!-- Intro -->
         <div class="text-center lg:text-left">
-          <h1 class="text-4xl md:text-5xl font-display font-bold text-gray-900 mb-6">
+          <h1 class="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-gray-100 mb-6">
             <span class="gradient-text">About Me</span>
           </h1>
-          <div class="space-y-4 text-gray-500 mb-8 max-w-xl">
+          <div class="space-y-4 text-gray-500 dark:text-gray-400 mb-8 max-w-xl">
             <p>
               Based in San Francisco, I specialize in real-time graphics, procedural tools, and pipeline development for games, VR/AR, and simulation.
             </p>
@@ -56,33 +56,33 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- What I Do -->
-  <section class="py-12 bg-gradient-to-b from-white to-lavender-50/50">
+  <section class="py-12 bg-gradient-to-b from-white to-lavender-50/50 dark:from-gray-950 dark:to-gray-900/50">
     <div class="container">
       <div class="max-w-3xl mx-auto">
-        <h2 class="text-2xl font-display font-bold text-gray-900 mb-6 text-center">What I Do</h2>
+        <h2 class="text-2xl font-display font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">What I Do</h2>
 
         <div class="space-y-4">
           <div class="flex gap-4">
             <div class="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
             <div>
-              <span class="font-semibold text-gray-900">Real-Time Graphics & VR/AR</span>
-              <span class="text-gray-600"> — Building immersive experiences and dynamic lighting systems for platforms like Meta Horizon.</span>
+              <span class="font-semibold text-gray-900 dark:text-gray-100">Real-Time Graphics & VR/AR</span>
+              <span class="text-gray-600 dark:text-gray-400"> — Building immersive experiences and dynamic lighting systems for platforms like Meta Horizon.</span>
             </div>
           </div>
 
           <div class="flex gap-4">
             <div class="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
             <div>
-              <span class="font-semibold text-gray-900">Procedural Tools & Pipelines</span>
-              <span class="text-gray-600"> — Developing custom Unreal Engine pipelines for asset processing, world generation, and content optimization.</span>
+              <span class="font-semibold text-gray-900 dark:text-gray-100">Procedural Tools & Pipelines</span>
+              <span class="text-gray-600 dark:text-gray-400"> — Developing custom Unreal Engine pipelines for asset processing, world generation, and content optimization.</span>
             </div>
           </div>
 
           <div class="flex gap-4">
             <div class="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0"></div>
             <div>
-              <span class="font-semibold text-gray-900">Artist Tooling</span>
-              <span class="text-gray-600"> — Shipping tools that increase efficiency and empower creative teams to do their best work.</span>
+              <span class="font-semibold text-gray-900 dark:text-gray-100">Artist Tooling</span>
+              <span class="text-gray-600 dark:text-gray-400"> — Shipping tools that increase efficiency and empower creative teams to do their best work.</span>
             </div>
           </div>
         </div>
@@ -94,7 +94,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <section class="py-16">
     <div class="container">
       <div class="max-w-5xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-10 text-center">Background</h2>
+        <h2 class="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Background</h2>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <!-- Education -->
@@ -108,21 +108,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
                 </svg>
               </div>
               <div>
-                <h3 class="font-display font-semibold text-gray-900">University of Pennsylvania</h3>
-                <p class="text-gray-500 text-sm">BSE Computer Science, Digital Media Design</p>
+                <h3 class="font-display font-semibold text-gray-900 dark:text-gray-100">University of Pennsylvania</h3>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">BSE Computer Science, Digital Media Design</p>
               </div>
             </div>
           </div>
 
           <!-- Experience Summary -->
           <div class="card-playful p-6">
-            <h3 class="font-display font-semibold text-gray-900 mb-4">Experience</h3>
+            <h3 class="font-display font-semibold text-gray-900 dark:text-gray-100 mb-4">Experience</h3>
             <div class="flex flex-wrap gap-2">
-              <span class="px-3 py-1.5 bg-blue-50 text-blue-700 rounded-full text-sm font-medium">Meta</span>
-              <span class="px-3 py-1.5 bg-emerald-50 text-emerald-700 rounded-full text-sm font-medium">Applied Intuition</span>
-              <span class="px-3 py-1.5 bg-purple-50 text-purple-700 rounded-full text-sm font-medium">ILMxLAB</span>
-              <span class="px-3 py-1.5 bg-red-50 text-red-700 rounded-full text-sm font-medium">Marvel Studios</span>
-              <span class="px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-sm font-medium">Apple</span>
+              <span class="px-3 py-1.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">Meta</span>
+              <span class="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 rounded-full text-sm font-medium">Applied Intuition</span>
+              <span class="px-3 py-1.5 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm font-medium">ILMxLAB</span>
+              <span class="px-3 py-1.5 bg-red-50 dark:bg-red-900/30 text-red-700 dark:text-red-300 rounded-full text-sm font-medium">Marvel Studios</span>
+              <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium">Apple</span>
             </div>
           </div>
         </div>
@@ -131,44 +131,44 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   </section>
 
   <!-- Skills -->
-  <section class="py-16 bg-gradient-to-b from-lavender-50/50 to-white">
+  <section class="py-16 bg-gradient-to-b from-lavender-50/50 to-white dark:from-gray-900/50 dark:to-gray-950">
     <div class="container">
       <div class="max-w-5xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-10 text-center">Skills & Tools</h2>
+        <h2 class="text-2xl md:text-3xl font-display font-bold text-gray-900 dark:text-gray-100 mb-10 text-center">Skills & Tools</h2>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <!-- Languages -->
           <div class="text-center">
-            <h3 class="font-display font-semibold text-gray-900 mb-4">Languages</h3>
+            <h3 class="font-display font-semibold text-gray-900 dark:text-gray-100 mb-4">Languages</h3>
             <div class="flex flex-wrap justify-center gap-2">
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">C/C++</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">Python</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">HLSL</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">OpenGL</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">Blueprints</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">JavaScript</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">C/C++</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">Python</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">HLSL</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">OpenGL</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">Blueprints</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">JavaScript</span>
             </div>
           </div>
 
           <!-- Tools -->
           <div class="text-center">
-            <h3 class="font-display font-semibold text-gray-900 mb-4">Tools</h3>
+            <h3 class="font-display font-semibold text-gray-900 dark:text-gray-100 mb-4">Tools</h3>
             <div class="flex flex-wrap justify-center gap-2">
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">Unreal Engine</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">Houdini</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">Maya</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">Substance</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">Photoshop</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">Unreal Engine</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">Houdini</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">Maya</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">Substance</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">Photoshop</span>
             </div>
           </div>
 
           <!-- Workflow -->
           <div class="text-center">
-            <h3 class="font-display font-semibold text-gray-900 mb-4">Workflow</h3>
+            <h3 class="font-display font-semibold text-gray-900 dark:text-gray-100 mb-4">Workflow</h3>
             <div class="flex flex-wrap justify-center gap-2">
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">Git</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">Perforce</span>
-              <span class="px-3 py-1.5 bg-white border border-gray-200 rounded-lg text-sm text-gray-700 hover:border-accent/50 transition-colors">YAML</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">Git</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">Perforce</span>
+              <span class="px-3 py-1.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg text-sm text-gray-700 dark:text-gray-300 hover:border-accent/50 transition-colors">YAML</span>
             </div>
           </div>
         </div>

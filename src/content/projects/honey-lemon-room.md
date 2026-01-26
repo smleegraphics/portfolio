@@ -29,16 +29,16 @@ The goal was to learn the full environment art pipeline — from modeling and ma
 
 <h2 class="text-center">Concept vs Final</h2>
 
-<p class="text-center text-gray-600 mt-2 mb-6">Based on concept art by Dinah Kalaha</p>
+<p class="text-center text-gray-600 dark:text-gray-400 mt-2 mb-6">Based on concept art by Dinah Kalaha</p>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose">
   <div>
     <img src="/images/projects/honey-lemon-room/honey-lemon-concept-art.avif" alt="Concept Art by Dinah Kalaha" class="w-full h-auto rounded-lg" />
-    <p class="text-center text-sm text-gray-500 mt-2">Concept Art</p>
+    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Concept Art</p>
   </div>
   <div>
     <img src="/images/projects/honey-lemon-room/lighted_room.png" alt="Unreal Engine Render" class="w-full h-auto rounded-lg" />
-    <p class="text-center text-sm text-gray-500 mt-2">Unreal Engine Render</p>
+    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Unreal Engine Render</p>
   </div>
 </div>
 
@@ -46,28 +46,28 @@ The goal was to learn the full environment art pipeline — from modeling and ma
 
 <h2 class="text-center">Props</h2>
 
-<p class="text-center text-gray-600 mt-2 mb-6">Modeled in Maya and textured in Substance Painter</p>
+<p class="text-center text-gray-600 dark:text-gray-400 mt-2 mb-6">Modeled in Maya and textured in Substance Painter</p>
 
 <div class="grid grid-cols-2 md:grid-cols-3 gap-4 not-prose">
-  <div class="bg-gray-50 rounded-lg p-4">
+  <div class="rounded-lg p-4">
     <img src="/images/projects/honey-lemon-room/props/Bed.png" alt="Bed" class="w-full h-auto rounded" />
-    <p class="text-center text-sm text-gray-500 mt-2">Bed</p>
+    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Bed</p>
   </div>
-  <div class="bg-gray-50 rounded-lg p-4">
+  <div class="rounded-lg p-4">
     <img src="/images/projects/honey-lemon-room/props/Bulletin_Board.png" alt="Bulletin Board" class="w-full h-auto rounded" />
-    <p class="text-center text-sm text-gray-500 mt-2">Bulletin Board</p>
+    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Bulletin Board</p>
   </div>
-  <div class="bg-gray-50 rounded-lg p-4">
+  <div class="rounded-lg p-4">
     <img src="/images/projects/honey-lemon-room/props/Chalkboard.png" alt="Chalkboard" class="w-full h-auto rounded" />
-    <p class="text-center text-sm text-gray-500 mt-2">Chalkboard</p>
+    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Chalkboard</p>
   </div>
-  <div class="bg-gray-50 rounded-lg p-4">
+  <div class="rounded-lg p-4">
     <img src="/images/projects/honey-lemon-room/props/Rug.png" alt="Rug" class="w-full h-auto rounded" />
-    <p class="text-center text-sm text-gray-500 mt-2">Rug</p>
+    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Rug</p>
   </div>
-  <div class="bg-gray-50 rounded-lg p-4">
+  <div class="rounded-lg p-4">
     <img src="/images/projects/honey-lemon-room/props/Trunk.png" alt="Trunk" class="w-full h-auto rounded" />
-    <p class="text-center text-sm text-gray-500 mt-2">Trunk</p>
+    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Trunk</p>
   </div>
 </div>
 

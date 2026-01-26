@@ -51,8 +51,20 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
     <meta name="generator" content={Astro.generator} />
+
+    <!-- Dark mode script - runs before page renders to prevent flash -->
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('theme');
+        if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="min-h-screen flex flex-col bg-white dark:bg-gray-950 transition-colors duration-300">
     <Header />
     <main class="flex-1">
       <slot />
