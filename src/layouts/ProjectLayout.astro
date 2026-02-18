@@ -43,4 +43,98 @@ const formattedDate = new Intl.DateTimeFormat('en-US', {
       <slot />
     </div>
   </article>
+
+  <!-- Lightbox -->
+  <div
+    id="proj-lb"
+    class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Image viewer"
+  >
+    <button
+      id="proj-lb-close"
+      class="absolute top-4 right-4 p-2 text-white/70 hover:text-white transition-colors z-10"
+      aria-label="Close"
+    >
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+
+    <button
+      id="proj-lb-prev"
+      class="absolute left-4 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white transition-colors z-10"
+      aria-label="Previous image"
+    >
+      <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+      </svg>
+    </button>
+
+    <button
+      id="proj-lb-next"
+      class="absolute right-4 top-1/2 -translate-y-1/2 p-2 text-white/70 hover:text-white transition-colors z-10"
+      aria-label="Next image"
+    >
+      <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+      </svg>
+    </button>
+
+    <div id="proj-lb-backdrop" class="flex items-center justify-center w-full h-full">
+      <img id="proj-lb-img" src="" alt="" class="max-w-[90vw] max-h-[90vh] w-auto h-auto rounded" />
+    </div>
+
+    <div id="proj-lb-counter" class="absolute bottom-4 left-1/2 -translate-x-1/2 text-white/60 text-sm"></div>
+  </div>
+
+  <script>
+    const imgs = Array.from(document.querySelectorAll('article > div img'));
+    let idx = 0;
+
+    const lb = document.getElementById('proj-lb')!;
+    const lbImg = document.getElementById('proj-lb-img') as HTMLImageElement;
+    const lbCounter = document.getElementById('proj-lb-counter')!;
+    const lbPrev = document.getElementById('proj-lb-prev')!;
+    const lbNext = document.getElementById('proj-lb-next')!;
+    const lbBackdrop = document.getElementById('proj-lb-backdrop')!;
+
+    imgs.forEach((img, i) => {
+      img.classList.add('cursor-zoom-in');
+      img.addEventListener('click', () => { idx = i; openLb(); });
+    });
+
+    function openLb() {
+      lbImg.src = (imgs[idx] as HTMLImageElement).src;
+      lbImg.alt = imgs[idx].alt;
+      lbCounter.textContent = imgs.length > 1 ? `${idx + 1} / ${imgs.length}` : '';
+      lbPrev.classList.toggle('hidden', imgs.length <= 1);
+      lbNext.classList.toggle('hidden', imgs.length <= 1);
+      lb.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLb() {
+      lb.classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function nextImg() { idx = (idx + 1) % imgs.length; openLb(); }
+    function prevImg() { idx = (idx - 1 + imgs.length) % imgs.length; openLb(); }
+
+    document.getElementById('proj-lb-close')!.addEventListener('click', closeLb);
+    lbNext.addEventListener('click', nextImg);
+    lbPrev.addEventListener('click', prevImg);
+
+    lbBackdrop.addEventListener('click', (e) => { if (e.target === lbBackdrop) closeLb(); });
+    lb.addEventListener('click', (e) => { if (e.target === lb) closeLb(); });
+
+    document.addEventListener('keydown', (e) => {
+      if (lb.classList.contains('hidden')) return;
+      if (e.key === 'Escape') closeLb();
+      if (e.key === 'ArrowRight') nextImg();
+      if (e.key === 'ArrowLeft') prevImg();
+    });
+  </script>
 </BaseLayout>
