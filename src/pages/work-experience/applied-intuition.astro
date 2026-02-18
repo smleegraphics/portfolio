@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Applied Intuition | Work Experience | Sam Lee" description="Technical Artist work at Applied Intuition.">
+<BaseLayout title="Applied Intuition | Work Experience | Sam Lee" description="Technical Artist work at Applied Intuition, developing simulation and visualization tools for autonomous vehicle development.">
   <!-- Password Gate -->
   <div id="password-gate" class="container py-12 md:py-16">
     <div class="max-w-md mx-auto text-center">
@@ -50,33 +50,160 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <div>
           <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">Applied Intuition</h1>
           <p class="text-gray-500 dark:text-gray-400">Technical Artist</p>
+          <p class="text-sm text-gray-400 dark:text-gray-500">February 2023 – June 2024</p>
         </div>
       </div>
 
       <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl">
-        Developing simulation and visualization tools for autonomous vehicle development.
+        I joined Applied Intuition as a Technical Artist in February 2023, developing simulation and visualization tools
+        for autonomous vehicle development. I worked at the intersection of real-time graphics, engineering, and product
+        design to build systems that help AV engineers create and test virtual environments.
       </p>
     </header>
 
-    <div class="prose prose-lg dark:prose-invert max-w-3xl">
-      <h2>Overview</h2>
-      <p>
-        Add your Applied Intuition work experience content here. Describe the projects you worked on,
-        the tools you developed, and the impact of your contributions.
-      </p>
+    <div class="max-w-4xl">
 
-      <h2>Projects</h2>
-      <p>
-        Add details about specific projects, including images, videos, and descriptions
-        of your role and contributions.
-      </p>
+      <!-- Project: Material Editing System -->
+      <article class="mb-16">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Material Editing System</h3>
+        <p class="text-sm text-gray-400 dark:text-gray-500 mb-4">2023 – 2024</p>
 
-      <h2>Technologies</h2>
-      <ul>
-        <li>Add relevant technologies</li>
-        <li>Tools and frameworks used</li>
-        <li>Skills developed</li>
-      </ul>
+        <div class="prose prose-lg dark:prose-invert mb-6">
+          <p>
+            Designed and built a full-stack material editing system inside Applied Intuition's sensor simulation product,
+            allowing AV engineers to programmatically customize road surfaces, markings, and material properties in virtual
+            environments. The system gives sensor manufacturers and software teams the ability to quickly generate varied
+            synthetic training data and test specific reflectance values without manual 3D editing.
+          </p>
+          <p>
+            I owned the project end-to-end: designing the API, building the Unreal Engine backend, and — after the PM
+            requested a frontend — learning React in four weeks to ship a GUI that lets users browse material presets and
+            fine-tune parameters in-product.
+          </p>
+        </div>
+
+        <div class="space-y-8 mb-8">
+          <div>
+            <video
+              src="/images/work-experiences/applied%20intuition/parking_materials_with_GUI_2x.mp4"
+              class="w-full rounded-lg"
+              controls
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Material editing GUI — users can browse presets and fine-tune parameters in real time</p>
+          </div>
+          <div>
+            <video
+              src="/images/work-experiences/applied%20intuition/parking_lot_surface_materials.mp4"
+              class="w-full rounded-lg"
+              controls
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Surface material variants applied to a parking lot environment</p>
+          </div>
+          <div>
+            <video
+              src="/images/work-experiences/applied%20intuition/realistic_material_editng2.mp4"
+              class="w-full rounded-lg"
+              controls
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Realistic material editing — adjusting reflectance and surface properties</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Unreal Engine</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">C++</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">HLSL</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">React</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">YAML</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Sensor Simulation</span>
+        </div>
+
+        <h4 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Contributions</h4>
+        <div class="prose prose-lg dark:prose-invert">
+          <ul>
+            <li><strong>API design</strong> — Designed a future-proof, extendable API that lets users select objects, choose material presets, and fine-tune parameters without locking into specific engine internals</li>
+            <li><strong>Unreal backend</strong> — Implemented the material editing pipeline in C++, connecting user-facing controls to Unreal's material system and shaders</li>
+            <li><strong>React frontend</strong> — Learned React in four weeks and partnered with frontend engineering to build a GUI leveraging the product's YAML-to-GUI feature, significantly improving usability</li>
+            <li><strong>XFN collaboration</strong> — Gathered input from users, TAs, engineers, and designers to find the right balance between flexibility and guard rails</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Project: Custom Streetlights -->
+      <article class="mb-16">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Custom Streetlights</h3>
+        <p class="text-sm text-gray-400 dark:text-gray-500 mb-4">2023 – 2024</p>
+
+        <div class="prose prose-lg dark:prose-invert mb-6">
+          <p>
+            Built a system that allows users to programmatically customize streetlights in parking lot simulation scenes.
+            The project was driven by a customer need: nighttime environments with minimal lighting are a known challenge
+            for autonomous vehicle perception systems, and teams needed a way to reliably generate and control those
+            conditions at scale.
+          </p>
+          <p>
+            The streetlight system gives users direct control over placement, intensity, color temperature, and coverage,
+            enabling repeatable nighttime test scenarios for sensor validation and AV software training.
+          </p>
+        </div>
+
+        <div class="space-y-8 mb-8">
+          <div>
+            <video
+              src="/images/work-experiences/applied%20intuition/global_street_light_demo.mov"
+              class="w-full rounded-lg"
+              controls
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Streetlight customization system — programmatic control over placement and lighting parameters</p>
+          </div>
+          <div>
+            <video
+              src="/images/work-experiences/applied%20intuition/parking_lot_night_rain.mp4"
+              class="w-full rounded-lg"
+              controls
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Nighttime parking lot with rain — a challenging scenario for autonomous perception systems</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Unreal Engine</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">C++</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">HLSL</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Sensor Simulation</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Lighting</span>
+        </div>
+
+        <h4 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Contributions</h4>
+        <div class="prose prose-lg dark:prose-invert">
+          <ul>
+            <li><strong>Programmatic lighting control</strong> — Built a system for scripting streetlight properties (placement, intensity, color temperature, spread) across scenes without manual in-editor editing</li>
+            <li><strong>Nighttime scenario support</strong> — Enabled customers to generate repeatable low-light test conditions that are critical for validating AV perception in challenging environments</li>
+            <li><strong>Unreal content pipeline</strong> — Developed C++ tooling to maintain performance and visual quality standards for real-world simulation fidelity</li>
+          </ul>
+        </div>
+      </article>
+
     </div>
   </section>
 
