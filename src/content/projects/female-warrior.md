@@ -1,6 +1,6 @@
 ---
-title: Alala — Female Warrior
-description: A high-fidelity female warrior character sculpted in ZBrush with realistic skin and hair, rendered with dramatic lighting.
+title: Alala, Female Warrior
+description: For my first ZBrush character, I wanted to create a strong heroine. I used the aesthetic of a native inspired warrior from a far away land and combined it with the armor from the Dora Milaje in Black Panther.
 date: 2021-09-01
 thumbnail: /images/art/3D%20art/female-warrior/face_shot_dual_lighting_edited.jpg
 tags:
@@ -12,7 +12,7 @@ tags:
 featured: false
 ---
 
-Alala is a high-fidelity female warrior character created to push realistic character art — focusing on believable skin texture, facial anatomy, and dramatic lighting. The project was a deep dive into sculpting and rendering a photorealistic human face.
+For my first ZBrush character, I wanted to create a strong heroine. I used the aesthetic of a native inspired warrior from a far away land and combined it with the armor from the Dora Milaje in Black Panther. I sculpted the figure in ZBrush and hand painted all of the textures in Substance Painter.
 
 <div class="mt-12"></div>
 
@@ -22,25 +22,9 @@ Alala is a high-fidelity female warrior character created to push realistic char
 
 <div class="mt-16"></div>
 
-## Renders
-
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mt-6">
-  <div>
-    <div class="h-80 overflow-hidden rounded-lg">
-      <img src="/images/art/3D%20art/female-warrior/face_shot_dual_lighting_edited.jpg" alt="Face with dual lighting" class="w-full h-full object-cover" />
-    </div>
-    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Dual lighting</p>
-  </div>
-  <div>
-    <div class="h-80 overflow-hidden rounded-lg">
-      <img src="/images/art/3D%20art/female-warrior/full_body_dramatiic_lighting.jpg" alt="Full body dramatic lighting" class="w-full h-full object-cover" />
-    </div>
-    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Dramatic lighting</p>
-  </div>
-  <div class="md:col-span-2">
-    <div class="h-96 overflow-hidden rounded-lg">
-      <img src="/images/art/3D%20art/female-warrior/full_body_.png" alt="Full body render" class="w-full h-full object-cover" />
-    </div>
+<div class="not-prose">
+  <div class="overflow-hidden rounded-lg flex items-center justify-center">
+    <img src="/images/art/3D%20art/female-warrior/face_shot_dual_lighting%20copy.png" alt="Face close-up" class="w-full h-auto object-contain" />
   </div>
 </div>
 
@@ -48,30 +32,21 @@ Alala is a high-fidelity female warrior character created to push realistic char
 
 ## Original Concept Art
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4 not-prose mt-6">
+<div class="grid grid-cols-2 gap-2 not-prose mt-6">
   <div>
-    <div class="h-96 overflow-hidden rounded-lg flex items-center justify-center">
+    <div class="h-[32rem] overflow-hidden rounded-lg flex items-center justify-center">
       <img src="/images/art/3D%20art/female-warrior/IMG_1263.PNG" alt="Reference" class="w-full h-full object-contain" />
     </div>
-    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Reference</p>
   </div>
   <div>
-    <div class="h-96 overflow-hidden rounded-lg flex items-center justify-center">
-      <img src="/images/art/3D%20art/female-warrior/face_shot_dual_lighting_edited.jpg" alt="Final render" class="w-full h-full object-contain" />
+    <div class="h-[32rem] overflow-hidden rounded-lg flex items-center justify-center">
+      <img src="/images/art/3D%20art/female-warrior/IMG_1265.PNG" alt="Reference" class="w-full h-full object-contain" />
     </div>
-    <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-2">Final render</p>
   </div>
 </div>
 
-<div class="grid grid-cols-2 gap-4 not-prose mt-4">
-  <div>
-    <div class="h-56 overflow-hidden rounded-lg">
-      <img src="/images/art/3D%20art/female-warrior/IMG_1264.PNG" alt="Reference" class="w-full h-full object-cover" />
-    </div>
-  </div>
-  <div>
-    <div class="h-56 overflow-hidden rounded-lg">
-      <img src="/images/art/3D%20art/female-warrior/IMG_1265.PNG" alt="Reference" class="w-full h-full object-cover" />
-    </div>
+<div class="not-prose mt-4">
+  <div class="h-96 overflow-hidden rounded-lg flex items-center justify-center">
+    <img src="/images/art/3D%20art/female-warrior/IMG_1264.PNG" alt="Reference" class="w-full h-full object-contain" />
   </div>
 </div>

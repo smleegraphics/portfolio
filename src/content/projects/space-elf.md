@@ -1,5 +1,5 @@
 ---
-title: Sigrid — Space Elf
+title: Sigrid, Space Elf
 description: A stylized space elf character modeled and sculpted with detailed costume design and expressive features.
 date: 2020-06-01
 thumbnail: /images/art/3D%20art/space-elf/front_profile_edited_edited.jpg
