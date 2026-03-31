@@ -4,10 +4,10 @@ description: A cozy stylized bedroom environment built in Unreal Engine.
 date: 2022-06-15
 thumbnail: /images/projects/honey-lemon-room/lighted_room.png
 tags:
-  - project
+  - 3d
   - unreal
   - maya
-  - substane painter
+  - substance-painter
   - environment
   
 featured: true

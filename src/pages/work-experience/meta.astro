@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Meta | Work Experience | Sam Lee" description="Technical Artist work at Meta.">
+<BaseLayout title="Meta | Work Experience | Sam Lee" description="Technical Artist work at Meta Reality Labs, developing tools and environments for Horizon Home.">
   <section class="container py-12 md:py-16">
     <header class="mb-12">
       <nav class="mb-6">
@@ -18,34 +18,99 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <img src="/images/logos/meta-logo.png" alt="Meta logo" class="w-16 h-16 object-contain flex-shrink-0 rounded-2xl" />
         <div>
           <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">Meta</h1>
-          <p class="text-gray-500 dark:text-gray-400">Technical Artist</p>
+          <p class="text-gray-500 dark:text-gray-400">Technical Artist, Reality Labs</p>
+          <p class="text-sm text-gray-400 dark:text-gray-500">June 2024 – Present</p>
         </div>
       </div>
 
       <p class="text-lg text-gray-600 dark:text-gray-400 max-w-3xl">
-        Working on creative tools and experiences for the metaverse platform.
+        I joined Meta as a contract Technical Artist in June 2024 and converted to a full-time employee in March 2025.
+        I develop tools and workflows that power Meta's virtual reality experiences,
+        working at the intersection of Unreal Engine and <a href="https://developers.meta.com/horizon/blog/studio/meta-horizon-engine-at-a-glance/" target="_blank" class="text-accent hover:underline">Meta Horizon Engine</a>.
       </p>
     </header>
 
-    <div class="prose prose-lg dark:prose-invert max-w-3xl">
-      <h2>Overview</h2>
-      <p>
-        Add your Meta work experience content here. Describe the projects you worked on,
-        the tools you developed, and the impact of your contributions.
-      </p>
+    <div class="max-w-4xl">
+      <!-- Project: Horizon Home Switchable Vistas -->
+      <article class="mb-16">
+        <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Horizon Home Switchable Vistas</h3>
+        <p class="text-sm text-gray-400 dark:text-gray-500 mb-4">2025</p>
 
-      <h2>Projects</h2>
-      <p>
-        Add details about specific projects, including images, videos, and descriptions
-        of your role and contributions.
-      </p>
+        <div class="prose prose-lg dark:prose-invert mb-6">
+          <p>
+            Productionized "Switchable Vista" homes—high-fidelity virtual environments that users can seamlessly
+            switch between as their VR home space. These environments are built using Meta Horizon Engine to
+            deliver rich, immersive experiences on Quest hardware.
+          </p>
+        </div>
 
-      <h2>Technologies</h2>
-      <ul>
-        <li>Add relevant technologies</li>
-        <li>Tools and frameworks used</li>
-        <li>Skills developed</li>
-      </ul>
+        <div class="space-y-8 mb-8">
+          <div>
+            <video
+              src="/images/work-experiences/meta/DEV_2025_HSR_04_enviroments_091725_TP-1.mov"
+              class="w-full rounded-lg"
+              controls
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">High-fidelity environment showcase</p>
+          </div>
+          <div>
+            <video
+              src="/images/work-experiences/meta/DEV_2025_HSR_02_Home_UI_091725_TP-1.mov"
+              class="w-full rounded-lg"
+              controls
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Home UI navigation between Vista environments</p>
+          </div>
+          <div>
+            <video
+              src="/images/work-experiences/meta/DEV_2025_HSR_03_browser_IG_091725_New clip_TP-1.mov"
+              class="w-full rounded-lg"
+              controls
+              autoplay
+              loop
+              muted
+              playsinline
+            ></video>
+            <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Browser and instagram panels with custom shading</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2 mb-8">
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Unreal Engine</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Meta Horizon Engine</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Python</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">C++</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">Light Baking</span>
+          <span class="px-3 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm">VR Development</span>
+        </div>
+
+        <img
+          src="/images/work-experiences/meta/end-of-year-recap-hzos-events-tech-art-team-meta-reality-labs-google-docs.png"
+          alt="Horizon Home environments shipped in 2024"
+          class="w-full rounded-lg border border-gray-200 dark:border-gray-700 mb-8"
+        />
+
+        <h4 class="text-lg font-medium text-gray-900 dark:text-gray-100 mb-3">Contributions</h4>
+        <div class="prose prose-lg dark:prose-invert">
+          <ul>
+            <li><strong>Light baking workflows</strong> — Developed Unreal Engine tooling for baking high-quality lightmaps optimized for mobile VR</li>
+            <li><strong>Asset export pipelines</strong> — Built tools for processing and exporting assets from Unreal to Meta Horizon Engine</li>
+            <li><strong>Creator tooling</strong> — Collaborated closely with MHE engineers to improve the tooling experience for content creators</li>
+            <li><strong>Light probe system</strong> — Authored a light probe tool that dynamically lights all avatars in Horizon Home and Events, ensuring visual consistency across different spaces and lighting conditions</li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- Add more projects here -->
+
     </div>
   </section>
 </BaseLayout>
