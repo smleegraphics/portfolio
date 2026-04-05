@@ -1,10 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ImageGrid from '../components/ImageGrid.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 
 const allProjects = await getCollection('projects');
-const sketches = await getCollection('sketches');
 
 const artProjects = allProjects
   .filter(p => p.data.tags?.includes('3d'))
@@ -12,9 +12,6 @@ const artProjects = allProjects
 
 const technicalProjects = allProjects
   .filter(p => !p.data.tags?.includes('3d'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const traditionalArt = sketches
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
@@ -39,10 +36,18 @@ const traditionalArt = sketches
       <ImageGrid projects={artProjects} basePath="/projects" />
     </div>
 
-    <!-- Traditional Art -->
+    <!-- 2D Art -->
     <div>
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-8">Traditional Art</h2>
-      <ImageGrid projects={traditionalArt} basePath="/sketches" />
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-8">2D Art</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ProjectCard
+          title="Sketchbook"
+          description="My personal explorations in digital art and on paper. I'm most fascinated by drawing figures, and studying color and light."
+          thumbnail="/images/art/2D%20art/Digital%20Art/flower_girl.PNG"
+          href="/art/sketchbook"
+          tags={['digital', 'traditional']}
+        />
+      </div>
     </div>
   </section>
 </BaseLayout>

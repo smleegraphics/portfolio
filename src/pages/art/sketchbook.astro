@@ -1,53 +1,83 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ImageGrid from '../../components/ImageGrid.astro';
-import { getCollection } from 'astro:content';
+import Lightbox from '../../components/Lightbox.astro';
 
-// Get sketches from the sketches collection and projects tagged with '2d' or 'illustration'
-const sketches = await getCollection('sketches');
-const artProjects = await getCollection('projects', ({ data }) => {
-  return data.tags?.includes('2d') || data.tags?.includes('illustration') || data.tags?.includes('sketch');
-});
+const digitalArt = [
+  '/images/art/2D%20art/Digital%20Art/driver.JPG',
+  '/images/art/2D%20art/Digital%20Art/flower_girl.PNG',
+  '/images/art/2D%20art/Digital%20Art/Untitled_Artwork.jpg',
+  '/images/art/2D%20art/Digital%20Art/Untitled_Artwork%201.jpg',
+  '/images/art/2D%20art/Digital%20Art/Untitled_Artwork%202.jpg',
+  '/images/art/2D%20art/Digital%20Art/Untitled_Artwork%203.jpg',
+];
 
-// Combine and sort by date
-const allArt = [...sketches, ...artProjects].sort(
-  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
-);
+const pencilSketches = [
+  '/images/art/2D%20art/Pencil%20Sketches/figure_woman.png',
+  '/images/art/2D%20art/Pencil%20Sketches/library_perspective.png',
+  '/images/art/2D%20art/Pencil%20Sketches/IMG_9021.jpg',
+  '/images/art/2D%20art/Pencil%20Sketches/IMG_9256.jpg',
+  '/images/art/2D%20art/Pencil%20Sketches/IMG_9259.jpg',
+];
+
+const allImages = [...digitalArt, ...pencilSketches];
 ---
 
-<BaseLayout title="Sketchbook | Sam Lee" description="Traditional paintings, sketches, and digital art.">
+<BaseLayout title="Sketchbook | Sam Lee" description="Digital art and traditional pencil sketches.">
   <section class="container py-12 md:py-16">
     <header class="mb-12">
-      <nav class="mb-6">
-        <a href="/art" class="inline-flex items-center text-sm text-gray-500 dark:text-gray-400 hover:text-accent transition-colors">
-          <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-          </svg>
-          Back to Art
-        </a>
-      </nav>
+      <a href="javascript:history.back()" class="inline-flex items-center text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mb-4 transition-colors">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+        </svg>
+        Back
+      </a>
 
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">Sketchbook</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
-        A collection of traditional paintings, sketches, and digital art.
+<h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">Sketchbook</h1>
+      <p class="text-lg text-gray-600 dark:text-gray-400">
+        My personal explorations in digital art and on paper. I'm most fascinated by drawing figures, and studying color and light.
       </p>
     </header>
 
-    {allArt.length > 0 ? (
-      <ImageGrid projects={allArt} basePath="/sketches" />
-    ) : (
-      <div class="text-center py-12">
-        <div class="w-20 h-20 bg-gradient-to-br from-pink-100 to-purple-200 rounded-2xl flex items-center justify-center mx-auto mb-6">
-          <svg class="w-10 h-10 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
-          </svg>
-        </div>
-        <h2 class="text-xl font-display font-semibold text-gray-900 dark:text-gray-100 mb-2">Sketchbook Coming Soon</h2>
-        <p class="text-gray-600 dark:text-gray-400 max-w-md mx-auto">
-          I'm currently adding my artwork. Check back soon to see paintings,
-          sketches, and more!
-        </p>
+    <div class="mb-12">
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Digital Art</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {digitalArt.map((src, i) => (
+          <button
+            class="lightbox-trigger aspect-square overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 hover:opacity-90 transition-opacity"
+            data-index={i}
+            aria-label={`Open image ${i + 1}`}
+          >
+            <img
+              src={src}
+              alt={`Digital artwork ${i + 1}`}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </button>
+        ))}
       </div>
-    )}
+    </div>
+
+    <div>
+      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Pencil Sketches</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {pencilSketches.map((src, i) => (
+          <button
+            class="lightbox-trigger aspect-square overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800 hover:opacity-90 transition-opacity"
+            data-index={digitalArt.length + i}
+            aria-label={`Open image ${digitalArt.length + i + 1}`}
+          >
+            <img
+              src={src}
+              alt={`Pencil sketch ${i + 1}`}
+              class="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </button>
+        ))}
+      </div>
+    </div>
   </section>
+
+  <Lightbox images={allImages} />
 </BaseLayout>
