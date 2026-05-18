@@ -17,7 +17,7 @@ A stylized fantasy dwarf character modeled as an exercise in organic sculpting a
 <div class="mt-12"></div>
 
 <video autoplay muted loop playsinline controls class="w-full rounded-lg">
-  <source src="/images/art/3D%20art/dwarf/14%20-%20dwarf_turntable.mov" type="video/mp4">
+  <source src="/images/art/3D%20art/dwarf/dwarf_turntable.mp4" type="video/mp4">
 </video>
 
 <div class="mt-16"></div>
