@@ -1,17 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ImageGrid from '../components/ImageGrid.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 
 const allProjects = await getCollection('projects');
 
-const artProjects = allProjects
-  .filter(p => p.data.tags?.includes('3d'))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-
-const technicalProjects = allProjects
-  .filter(p => !p.data.tags?.includes('3d'))
+const sortedProjects = allProjects
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
@@ -19,35 +13,28 @@ const technicalProjects = allProjects
   <section class="container py-12 md:py-16">
     <header class="mb-12">
       <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-4">Projects</h1>
-      <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl">
+      <p class="text-lg text-gray-600 dark:text-gray-400 whitespace-nowrap">
         Personal projects spanning procedural tooling, 3D character and environment art, and traditional artwork.
       </p>
     </header>
 
-    <!-- Technical & Tools -->
-    <div class="mb-16">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-8">Technical & Tools</h2>
-      <ImageGrid projects={technicalProjects} basePath="/projects" />
-    </div>
-
-    <!-- 3D Art -->
-    <div class="mb-16">
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-8">3D Art</h2>
-      <ImageGrid projects={artProjects} basePath="/projects" />
-    </div>
-
-    <!-- 2D Art -->
-    <div>
-      <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mb-8">2D Art</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sortedProjects.map((project) => (
         <ProjectCard
-          title="Sketchbook"
-          description="My personal explorations in digital art and on paper. I'm most fascinated by drawing figures, and studying color and light."
-          thumbnail="/images/art/2D%20art/Digital%20Art/flower_girl.PNG"
-          href="/art/sketchbook"
-          tags={['digital', 'traditional']}
+          title={project.data.title}
+          description={project.data.description}
+          thumbnail={project.data.thumbnail}
+          href={`/projects/${project.slug}`}
+          tags={project.data.tags}
         />
-      </div>
+      ))}
+      <ProjectCard
+        title="Sketchbook"
+        description="My personal explorations in digital art and on paper. I'm most fascinated by drawing figures, and studying color and light."
+        thumbnail="/images/art/2D%20art/Digital%20Art/flower_girl.PNG"
+        href="/art/sketchbook"
+        tags={['digital', 'traditional']}
+      />
     </div>
   </section>
 </BaseLayout>
