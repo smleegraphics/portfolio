@@ -1,7 +1,7 @@
 ---
 title: Cozy Reading Nook
 description: A stylized character and environment — Frank, a domesticated Anton Ego, reading in his cozy nook on a snowy winter night.
-date: 2021-05-01
+date: 2019-12-01
 thumbnail: /images/art/3D%20art/cozy-reading-nook/frank_in_nook_right_chair.avif
 tags:
   - 3d

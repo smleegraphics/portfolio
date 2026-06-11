@@ -1,7 +1,7 @@
 ---
 title: Dwarf Character
 description: A stylized dwarf character sculpted in ZBrush, retopologized in Maya, and textured in Substance Painter.
-date: 2019-12-01
+date: 2021-05-01
 thumbnail: /images/art/3D%20art/dwarf/dwarf_hd_render_edited.jpg
 tags:
   - 3d
