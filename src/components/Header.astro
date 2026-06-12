@@ -19,7 +19,26 @@ const isUnderSection = (href: string) => {
   <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
       <!-- Logo -->
-      <a href="/" class="font-display text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-accent transition-colors pl-0">
+      <a href="/" class="group flex items-center gap-2 font-display text-lg font-semibold text-gray-900 dark:text-gray-100 hover:text-accent transition-colors pl-0">
+        <svg viewBox="0 0 100 100" class="w-9 h-9 shrink-0 text-accent" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- faceted octahedron -->
+          <polygon points="50,20 24,44 50,56" fill="currentColor" opacity=".74" />
+          <polygon points="50,20 50,56 76,44" fill="currentColor" opacity=".95" />
+          <polygon points="50,84 24,44 50,56" fill="currentColor" opacity=".32" />
+          <polygon points="50,84 50,56 76,44" fill="currentColor" opacity=".5" />
+          <!-- facet cut-lines, clipped to the diamond so nothing pokes out -->
+          <defs>
+            <clipPath id="logo-diamond">
+              <polygon points="50,20 76,44 50,84 24,44" />
+            </clipPath>
+          </defs>
+          <g clip-path="url(#logo-diamond)">
+            <path
+              d="M50,20 L50,84 M24,44 L76,44 M37,32 L50,56 M63,32 L50,56 M37,64 L50,56 M63,64 L50,56"
+              stroke="currentColor" stroke-width="1.6" opacity=".45" stroke-linecap="round" stroke-linejoin="round"
+            />
+          </g>
+        </svg>
         Sam Lee
       </a>
 
