@@ -70,3 +70,4 @@ featured: boolean (default: false) - shows on home page
 - Tailwind CSS for styling
 - Content Collections for type-safe Markdown
 - FormSubmit.co for contact form (sends to smlee.graphics@gmail.com)
+- Vercel Web Analytics via `@vercel/analytics/astro` (`<Analytics />` in `BaseLayout.astro`; only reports on Vercel deployments)
