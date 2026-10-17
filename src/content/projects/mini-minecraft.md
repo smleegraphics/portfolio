@@ -4,8 +4,6 @@ description: A C++ and OpenGL recreation of Minecraft featuring procedural terra
 date: 2020-04-15
 thumbnail: /images/projects/mini-minecraft/minecraft-thumbnail.png
 tags:
-  - project
-  - code
   - opengl
   - cpp
 featured: true

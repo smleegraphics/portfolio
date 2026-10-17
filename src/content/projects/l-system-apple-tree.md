@@ -4,8 +4,6 @@ description: A procedural apple tree generator built with WebGL and TypeScript u
 date: 2021-03-10
 thumbnail: /images/projects/l-system-apple-tree/tree_thumbnail.png
 tags:
-  - project
-  - code
   - webgl
   - typescript
 featured: false

@@ -4,7 +4,6 @@ description: A Houdini-based procedural tool for generating customizable stylize
 date: 2021-02-20
 thumbnail: /images/projects/procedural-flower-tool/Active_Render.0001.1.png
 tags:
-  - project
   - houdini
   - vex
   - python

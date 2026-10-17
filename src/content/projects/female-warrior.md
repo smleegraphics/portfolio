@@ -4,11 +4,14 @@ description: For my first ZBrush character, I wanted to create a strong heroine.
 date: 2021-09-01
 thumbnail: /images/art/3D%20art/female-warrior/face_shot_dual_lighting_edited.jpg
 tags:
-  - 3d
   - zbrush
   - maya
   - substance-painter
   - character
+cardTags:
+  - zbrush
+  - maya
+  - substance-painter
 featured: false
 ---
 

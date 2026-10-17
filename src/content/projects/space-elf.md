@@ -4,7 +4,6 @@ description: A stylized space elf character modeled and sculpted with detailed c
 date: 2020-06-01
 thumbnail: /images/art/3D%20art/space-elf/front_profile_edited_edited.jpg
 tags:
-  - 3d
   - zbrush
   - maya
   - character
