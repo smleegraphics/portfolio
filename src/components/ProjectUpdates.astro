@@ -1,0 +1,44 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  updates: CollectionEntry<'project-updates'>[];
+}
+
+const { updates } = Astro.props;
+
+// frontmatter dates are midnight UTC; formatting in local time would show the day before west of UTC
+const formatDate = (date: Date) =>
+  new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' }).format(date);
+
+const rendered = await Promise.all(
+  updates.map(async (update) => ({
+    update,
+    // the file name, without the project folder, is the update's link anchor
+    anchor: update.slug.split('/').pop(),
+    Content: (await update.render()).Content,
+  })),
+);
+---
+
+{rendered.length > 0 && (
+  <section class="mt-16 not-prose">
+    <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Updates</h2>
+    <ol class="space-y-10 border-l-2 border-accent/20 pl-6">
+      {rendered.map(({ update, anchor, Content }) => (
+        <li id={anchor} class="scroll-mt-24">
+          <a href={`#${anchor}`} class="text-sm text-gray-500 dark:text-gray-400 hover:text-accent transition-colors">
+            <time datetime={update.data.date.toISOString()}>{formatDate(update.data.date)}</time>
+          </a>
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-gray-100 mt-1 mb-3">{update.data.title}</h3>
+          {update.data.summary && (
+            <p class="text-gray-600 dark:text-gray-400 mb-4">{update.data.summary}</p>
+          )}
+          <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300">
+            <Content />
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+)}

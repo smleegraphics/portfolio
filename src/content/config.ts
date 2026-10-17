@@ -1,4 +1,4 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, reference, z } from 'astro:content';
 
 // How many labels fit on a project card.
 const CARD_TAG_LIMIT = 3;
@@ -52,8 +52,21 @@ const blog = defineCollection({
   }),
 });
 
+// Dated updates to a project, listed newest first under its write-up.
+// One file per update, in a folder named after the project.
+const projectUpdates = defineCollection({
+  type: 'content',
+  schema: z.object({
+    project: reference('projects'),
+    title: z.string(),
+    date: z.date(),
+    summary: z.string().optional(),
+  }),
+});
+
 export const collections = {
   projects,
   sketches,
   blog,
+  'project-updates': projectUpdates,
 };
