@@ -45,11 +45,12 @@ npx astro check      # Run Astro type checker
 
 ### Pages
 - **`src/pages/index.astro`** - Home page with hero and featured work
-- **`src/pages/3d-modeling.astro`** - 3D projects gallery
-- **`src/pages/sketchbook.astro`** - Sketches gallery
-- **`src/pages/code.astro`** - Code projects gallery
+- **`src/pages/projects.astro`** - Every project, newest first, plus a Sketchbook card
+- **`src/pages/projects/[...slug].astro`** - Individual project pages
+- **`src/pages/art/sketchbook.astro`** - Sketches gallery
+- **`src/pages/work-experience.astro`** (+ `work-experience/`) - Work history
 - **`src/pages/about.astro`** - About page with contact form
-- **`src/pages/blog/`** - Blog index and dynamic post pages
+- **`src/pages/blog/`** - Blog index and dynamic post pages (not linked from the nav)
 
 ## Content Schema
 
@@ -59,8 +60,9 @@ title: string (required)
 description: string (required)
 date: date (required)
 thumbnail: string (required) - path to thumbnail image
-images: string[] (optional) - additional gallery images
-tags: string[] (optional) - for filtering (use "3d" for 3D Modeling, "code"/"web" for Code)
+tags: string[] (optional) - labels shown on the project page; say what the project is made with or is about
+cardTags: string[] (optional) - the labels the card shows (at most 3), picked from tags.
+  Required when there are more than 3 tags: the build fails rather than cut the list.
 featured: boolean (default: false) - shows on home page
 ```
 

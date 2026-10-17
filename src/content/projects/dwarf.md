@@ -4,11 +4,14 @@ description: A stylized dwarf character sculpted in ZBrush, retopologized in May
 date: 2021-05-01
 thumbnail: /images/art/3D%20art/dwarf/dwarf_hd_render_edited.jpg
 tags:
-  - 3d
   - zbrush
   - maya
   - substance-painter
   - character
+cardTags:
+  - zbrush
+  - maya
+  - substance-painter
 featured: false
 ---
 

@@ -4,7 +4,6 @@ description: A Houdini-based procedural tool for generating stylized mushrooms w
 date: 2022-02-01
 thumbnail: /images/projects/procedural-mushroom-tool/mushroom_still.png
 tags:
-  - project
   - houdini
   - vex
   - python

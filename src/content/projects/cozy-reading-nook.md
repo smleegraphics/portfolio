@@ -4,12 +4,15 @@ description: A stylized character and environment — Frank, a domesticated Anto
 date: 2019-12-01
 thumbnail: /images/art/3D%20art/cozy-reading-nook/frank_in_nook_right_chair.avif
 tags:
-  - 3d
   - maya
   - zbrush
   - substance-painter
   - environment
   - character
+cardTags:
+  - maya
+  - zbrush
+  - substance-painter
 featured: false
 ---
 
