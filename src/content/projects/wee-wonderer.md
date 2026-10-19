@@ -75,8 +75,6 @@ Not every scan is perfect. Common issues include stray blobs floating in the air
   <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400">Cleanup on the Kitchen table, in the order the passes run: stray clumps (orange) are removed, then holes are filled (purple).</figcaption>
 </figure>
 
-When a scan has enough splats for it, I also build the mesh on a second, finer grid, so it follows the shape of objects more faithfully.
-
 <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-8 mb-2">Mesh Generation</h3>
 
 I use <a href="https://0fps.net/2012/07/12/smooth-voxel-terrain-part-2/" class="text-accent hover:underline">Surface Nets</a> to build the mesh from the voxel grid. Surface Nets places one vertex inside each voxel cell the surface passes through, where the density crosses the threshold along the cell’s edges, and joins neighboring vertices into faces. The result is a smooth mesh that follows the splats much more closely than the voxels’ blocky faces would. I then run a <a href="https://graphics.stanford.edu/courses/cs468-01-fall/Papers/taubin-smoothing.pdf" class="text-accent hover:underline">Taubin smoothing</a> pass (a kind of smoothing that doesn’t shrink the mesh) so no trace of the blocky voxel shape remains.
@@ -128,8 +126,6 @@ I don’t want to play through the game every time the agent tries a fix, so I g
 <ul class="list-disc pl-6 space-y-2 text-sm">
   <li><strong class="text-gray-900 dark:text-gray-100">Kitchen, Living Room and Counter scans</strong>: the Mip-NeRF 360 dataset (Jonathan T. Barron, Ben Mildenhall, Dor Verbin, Pratul P. Srinivasan, Peter Hedman, <a href="https://jonbarron.info/mipnerf360/" class="text-accent hover:underline">CVPR 2022</a>), <a href="https://creativecommons.org/licenses/by/4.0/" class="text-accent hover:underline">CC BY 4.0</a>. Trained into splats by alexmkwizu; cleaned, levelled and converted for this project.</li>
   <li><strong class="text-gray-900 dark:text-gray-100">The figurine</strong>: <a href="https://sketchfab.com/3d-models/free-pack-chibi-base-mesh-rigged-fed4fb329f224f1594f631eae8d2626b" class="text-accent hover:underline">Free Pack – Chibi Base Mesh (Rigged)</a> by PolyOne Studio, <a href="https://creativecommons.org/licenses/by/4.0/" class="text-accent hover:underline">CC BY 4.0</a>, with animations from Mixamo.</li>
-  <li><strong class="text-gray-900 dark:text-gray-100">Curled Up Dog scan</strong>: captured by me.</li>
-  <li>Built with <a href="https://threejs.org" class="text-accent hover:underline">three.js</a> and <a href="https://github.com/gkjohnson/three-mesh-bvh" class="text-accent hover:underline">three-mesh-bvh</a>.</li>
 </ul>
 
 </div>
