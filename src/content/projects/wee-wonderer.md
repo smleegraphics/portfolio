@@ -24,9 +24,9 @@ featured: true
   <a href="https://github.com/smleegraphics/wee-wonderer" target="_blank" rel="noopener" class="btn-secondary no-underline text-gray-900 dark:text-gray-100">View the code</a>
 </div>
 
-<!-- Placeholder: gameplay video (Vimeo embed, same markup as the other project pages) -->
-
 It’s been a while since I’ve worked on a personal project end to end… but with how fast frontier models have been improving, I realized there was really nothing stopping me from building something of my own. Recently, it gave me the push I needed to continue pursuing my own education in <a href="https://repo-sam.inria.fr/fungraph/3d-gaussian-splatting/" class="text-accent hover:underline">Gaussian splats</a>.
+
+<div class="mt-10" style="padding:56.25% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1237158623?autoplay=1&loop=1&muted=1&badge=0&autopause=0&player_id=0&app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" style="position:absolute;top:0;left:0;width:100%;height:100%;border-radius:0.5rem;" title="Wee Wonderer trailer"></iframe></div>
 
 <h2 class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-14 mb-4 pt-10 border-t border-gray-200 dark:border-gray-800">The Idea</h2>
 
@@ -50,6 +50,13 @@ The scan is divided into a grid of <a href="https://en.wikipedia.org/wiki/Voxel"
 
 With the density grid in place, a threshold decides which voxels are solid. In my implementation, that threshold is 35% of the median density of the voxels, so it adapts to each scan instead of being one fixed number.
 
+<figure class="my-8">
+  <video autoplay muted loop playsinline class="w-full rounded-lg" aria-label="Voxels growing over the Kitchen scan, densest first">
+    <source src="/images/projects/wee-wonderer/voxel-density.mp4" type="video/mp4" />
+  </video>
+  <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400">The density grid on the Kitchen scan, with the threshold sweeping down: the densest voxels become solid first. Pale blue is just over the threshold, deep blue far over it.</figcaption>
+</figure>
+
 <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-8 mb-2">Voxel Cleanup</h3>
 
 Not every scan is perfect. Common issues include stray blobs floating in the air and holes in real surfaces. Wee Wonderer runs several cleanup passes on the voxels:
@@ -61,15 +68,32 @@ Not every scan is perfect. Common issues include stray blobs floating in the air
   <li>filling holes in flat vertical surfaces like cabinet doors</li>
 </ul>
 
+<figure class="my-8">
+  <video autoplay muted loop playsinline class="w-full rounded-lg" aria-label="Voxel cleanup on the Kitchen table: orange clumps shrink away, then purple voxels fill the holes">
+    <source src="/images/projects/wee-wonderer/voxel-cleanup.mp4" type="video/mp4" />
+  </video>
+  <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400">Cleanup on the Kitchen table, in the order the passes run: stray clumps (orange) are removed, then holes are filled (purple).</figcaption>
+</figure>
+
 When a scan has enough splats for it, I also build the mesh on a second, finer grid, so it follows the shape of objects more faithfully.
 
 <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-8 mb-2">Mesh Generation</h3>
 
 I use <a href="https://0fps.net/2012/07/12/smooth-voxel-terrain-part-2/" class="text-accent hover:underline">Surface Nets</a> to build the mesh from the voxel grid. Surface Nets places one vertex inside each voxel cell the surface passes through, where the density crosses the threshold along the cell’s edges, and joins neighboring vertices into faces. The result is a smooth mesh that follows the splats much more closely than the voxels’ blocky faces would. I then run a <a href="https://graphics.stanford.edu/courses/cs468-01-fall/Papers/taubin-smoothing.pdf" class="text-accent hover:underline">Taubin smoothing</a> pass (a kind of smoothing that doesn’t shrink the mesh) so no trace of the blocky voxel shape remains.
 
+<figure class="my-8">
+  <img src="/images/projects/wee-wonderer/mesh-wireframe.jpg" alt="The collision mesh drawn as a green wireframe over the bulldozer and table in the Kitchen scan" class="w-full rounded-lg" loading="lazy" />
+  <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400">The finished collision mesh, drawn as a wireframe over the scan.</figcaption>
+</figure>
+
 <h3 class="text-lg font-semibold text-gray-900 dark:text-gray-100 mt-8 mb-2">Bounding Volume Hierarchy (BVH) Lookup</h3>
 
 Every frame, the game checks the collision mesh to see whether the figurine is bumping into something, whether there’s a wall ahead to climb, where the ground is, and so on. The mesh has tens of thousands of triangles, sometimes over a hundred thousand, so checking every one of them each time would be far too slow. Instead, I use <a href="https://github.com/gkjohnson/three-mesh-bvh" class="text-accent hover:underline">three-mesh-bvh</a> to build a <a href="https://en.wikipedia.org/wiki/Bounding_volume_hierarchy" class="text-accent hover:underline">bounding volume hierarchy</a> (BVH) for each room. A BVH is a tree of boxes: each box holds two smaller boxes, all the way down to small boxes of about ten triangles each. A check starts at the biggest box and only goes into the boxes it actually touches, so it skips most of the room and only tests the few triangles near the figurine.
+
+<figure class="my-8">
+  <img src="/images/projects/wee-wonderer/bvh-diagram.svg" alt="Diagram: a top-down room of triangles inside nested boxes, and the same boxes as a tree. A check near the figurine opens one branch and tests 18 of 140 triangles." class="w-full rounded-lg border border-gray-200 dark:border-gray-800" loading="lazy" />
+  <figcaption class="mt-2 text-sm text-gray-500 dark:text-gray-400">A check near the figurine only opens the boxes it touches, so it skips most of the room.</figcaption>
+</figure>
 
 I also use the BVH when a room loads to build a map of walkable areas, by casting rays straight down to find every floor, tabletop and shelf with enough room above it to stand.
 
