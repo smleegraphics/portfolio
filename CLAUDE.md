@@ -31,6 +31,7 @@ npx astro check      # Run Astro type checker
 - **`src/content/projects/`** - 3D modeling and code project markdown files
 - **`src/content/sketches/`** - Sketchbook entry markdown files
 - **`src/content/blog/`** - Blog post markdown files
+- **`src/content/project-updates/<project-slug>/`** - Dated updates to a project, one markdown file each (`project`, `title`, `date`, optional `summary`). They list newest first under the project's write-up; the file name is the update's link anchor (`/projects/<slug>#<file-name>`)
 
 ### Components
 - **`src/components/Header.astro`** - Navigation with mobile hamburger menu
