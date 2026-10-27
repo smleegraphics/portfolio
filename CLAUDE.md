@@ -74,3 +74,4 @@ featured: boolean (default: false) - shows on home page
 - Content Collections for type-safe Markdown
 - FormSubmit.co for contact form (sends to smlee.graphics@gmail.com)
 - Vercel Web Analytics via `@vercel/analytics/astro` (`<Analytics />` in `BaseLayout.astro`; only reports on Vercel deployments)
+- Umami Cloud analytics (script in `BaseLayout.astro` `<head>`) for city-level visitor location; `data-domains` limits counting to the live domains, so local dev and Vercel preview visits are ignored

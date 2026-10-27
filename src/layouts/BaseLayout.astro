@@ -64,6 +64,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         }
       })();
     </script>
+
+    <!-- Umami analytics (city-level location); only counts visits on the live domains -->
+    <script
+      is:inline
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="8f239d5d-ac93-42cb-bd13-b5911b2e09a0"
+      data-domains="samanthamlee.com,portfolio-mu-blond-58.vercel.app"
+    ></script>
   </head>
   <body class="min-h-screen flex flex-col bg-white dark:bg-gray-950 transition-colors duration-300">
     <Header />
